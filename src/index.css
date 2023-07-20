@@ -1,5 +1,15 @@
+@import url('http://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Outfit, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,6 +24,30 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.app {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+
+}
+
+.app:before {
+  content: '';
+  background: url("./assets/wp1824960.jpg");
+
+}
+
+p {
+  font-size: 1.6rem;
+
+}
+
+h1 {
+   font-size: 6em;
+   line-height: 1.1;
+ }
 a {
   font-weight: 500;
   color: #646cff;
@@ -23,18 +57,16 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+/*!*body {*!*/
+/*!*  margin: 0;*!*/
+/*!*  display: flex;*!*/
+/*!*  place-items: center;*!*/
+/*!*  min-width: 320px;*!*/
+/*!*  min-height: 100vh;*!*/
+/*}*/
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+
+
 
 button {
   border-radius: 8px;

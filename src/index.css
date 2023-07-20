@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css2?family=Outfit:wght@400&display=swap');
+@import url('http://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -80,6 +80,12 @@
   padding: 1rem;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bold {
+  font-weight: 700;
+  color: rgba(0,0,0,0.9);
+  font-size: 2.2rem;
 }
 
 p {

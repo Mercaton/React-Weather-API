@@ -45,9 +45,28 @@
 
 }
 
+.app .search {
+  text-align: center;
+  padding: 1 rem;
+}
+
+.app input {
+  padding: .7rem 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+::placeholder {
+  color: #f8f8f8
+}
+
 .container {
   max-width: 700px;
-  height: 550px;
+  height: 500px;
   margin: auto;
   padding: 0 1rem;
   position: relative;
@@ -66,7 +85,7 @@
 
 .app .description {
   position: relative;
-  right: -80%;
+  right: -90%;
   transform-origin: 0 0;
   transform: rotate(270deg);
 }

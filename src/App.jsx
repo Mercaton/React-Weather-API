@@ -6,15 +6,25 @@ function App() {
     const [data, setData] = useState({})
     const [location, setLocation] = useState('')
 
-    // const url = 'https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=089a23e259f40f177b7c85e9782374db'
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=089a23e259f40f177b7c85e9782374db`
 
     const searchLocation = (event) => {
         if (event.key === 'Enter') {
-            axios.get(url).then((response) => {
+            axios.get(url)
+                .then((response) => {
                 setData(response.data)
                 console.log(response.data)
             })
+                .catch((error) => {
+                    if (error.response && error.response.status === 401) {
+                        console.error("Axios error 401 - Unauthorized");
+                    } else {
+                        console.error("Other Axios error:", error)
+                    }
+                });
+            setLocation('')
         }
+
     }
     return (
         <div className="app">
@@ -22,32 +32,33 @@ function App() {
                 <input
                     value={location}
                     onChange={event => setLocation(event.target.value)}
+                    onKeyDown={searchLocation}
                     placeholder='Enter location'
                     type="text"/>
             </div>
             <div className="container">
                 <div className="top">
                     <div className="location">
-                        <p>Dallas</p>
+                        <p>{data.name}</p>
                     </div>
                     <div className="temp">
-                        <h1>60&deg;F</h1>
+                        {data.main ? <h1>{data.main.temp}&deg;F</h1> : null}
                     </div>
                     <div className="description">
-                        <p>Clouds</p>
+                        {data.main ? <p>{data.weather[0].main}</p> : null}
                     </div>
                 </div>
                 <div className="bottom">
                     <div className="feels">
-                        <p className="bold">65&deg; F</p>
+                        {data.main ? <p className="bold">{data.main.feels_like}&deg; F</p> : null}
                         <p>Feels like</p>
                     </div>
                     <div className="humidity">
-                        <p className="bold">20 %</p>
+                        {data.main ? <p className="bold">{data.main.humidity} %</p> : null}
                         <p>Humidity</p>
                     </div>
                     <div className="wind">
-                        <p className="bold">12 MPH</p>
+                        {data.main ? <p className="bold">{data.wind.speed} MPH</p> : null}
                         <p>Wind</p>
                     </div>
                 </div>

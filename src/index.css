@@ -61,7 +61,10 @@
 }
 
 ::placeholder {
-  color: #f8f8f8
+  color: #f8f8f8;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+  outline: none;
 }
 
 .container {
@@ -85,9 +88,24 @@
 
 .app .description {
   position: relative;
+  top: 20%;
   right: -80%;
   transform-origin: 0 0;
   transform: rotate(270deg);
+}
+
+@media only screen and (max-width: 540px) {
+  .app .description {
+    transform: rotate(0deg);
+    transform-origin: unset;
+    top: 5%;
+    left: 50%;
+
+  }
+}
+
+.description p {
+  font-size: 4rem;
 }
 
 .app .bottom {

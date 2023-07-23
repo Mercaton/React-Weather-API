@@ -10,7 +10,7 @@ function App() {
 
     const searchLocation = (event) => {
         if (event.key === 'Enter') {
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
 
             axios.get(url)
                 .then((response) => {
@@ -44,30 +44,34 @@ function App() {
                         <p>{data.name}</p>
                     </div>
                     <div className="temp">
-                        {data.main ? <h1>{data.main.temp}&deg;F</h1> : null}
+                        {data.main ? <h1>{data.main.temp}&deg;C</h1> : null}
                     </div>
                     <div className="description">
-                        {data.main ? <p>{data.weather[0].main}</p> : null}
+                        {data.weather ? <p>{data.weather[0].main}</p> : null}
                     </div>
                 </div>
-                <div className="bottom">
-                    <div className="feels">
-                        {data.main ? <p className="bold">{data.main.feels_like}&deg; F</p> : null}
-                        <p>Feels like</p>
+
+                {data.name != undefined &&
+                    <div className="bottom">
+                        <div className="feels">
+                            {data.main ? <p className="bold">{data.main.feels_like}&deg; C</p> : null}
+                            <p>Feels like</p>
+                        </div>
+                        <div className="humidity">
+                            {data.main ? <p className="bold">{data.main.humidity} %</p> : null}
+                            <p>Humidity</p>
+                        </div>
+                        <div className="wind">
+                            {data.wind ? <p className="bold">{data.wind.speed} MPH</p> : null}
+                            <p>Wind</p>
+                        </div>
+                        <div className="pressure">
+                            {data.main ? <p className="bold">{data.main.pressure} hPa</p> : null}
+                            <p>Pressure</p>
+                        </div>
                     </div>
-                    <div className="humidity">
-                        {data.main ? <p className="bold">{data.main.humidity} %</p> : null}
-                        <p>Humidity</p>
-                    </div>
-                    <div className="wind">
-                        {data.main ? <p className="bold">{data.wind.speed} MPH</p> : null}
-                        <p>Wind</p>
-                    </div>
-                    <div className="pressure">
-                        {data.main ? <p className="bold">{data.main.pressure} hPa</p> : null}
-                        <p>Pressure</p>
-                    </div>
-                </div>
+                }
+
             </div>
         </div>
     )

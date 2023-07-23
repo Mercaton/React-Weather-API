@@ -6,11 +6,12 @@ function App() {
     const [data, setData] = useState({})
     const [location, setLocation] = useState('')
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`
     const apiKey = import.meta.env.VITE_API_KEY;
 
     const searchLocation = (event) => {
         if (event.key === 'Enter') {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+
             axios.get(url)
                 .then((response) => {
                 setData(response.data)

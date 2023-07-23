@@ -28,6 +28,11 @@ function App() {
         }
 
     }
+
+    const convertMphToKM = (mph) => {
+        return (mph * 1.60934).toFixed(1)
+    };
+
     return (
         <div className="app">
             <div className="search">
@@ -62,7 +67,7 @@ function App() {
                             <p>Humidity</p>
                         </div>
                         <div className="wind">
-                            {data.wind ? <p className="bold">{data.wind.speed} MPH</p> : null}
+                            {data.wind ? <p className="bold">{convertMphToKM(data.wind.speed)} KPH</p> : null}
                             <p>Wind</p>
                         </div>
                         <div className="pressure">

@@ -67,7 +67,7 @@ function App() {
                             <p>Humidity</p>
                         </div>
                         <div className="wind">
-                            {data.wind ? <p className="bold">{convertMphToKM(data.wind.speed)} KPH</p> : null}
+                            {data.wind ? <p className="bold">{convertMphToKM(data.wind.speed)} KM/H</p> : null}
                             <p>Wind</p>
                         </div>
                         <div className="pressure">

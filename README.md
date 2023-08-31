@@ -1,3 +1,3 @@
 # Training - React Wheater APP using openweatherAPI
 
-![img.png](img.png)
+![screen.png](src%2Fassets%2Fscreen.png)

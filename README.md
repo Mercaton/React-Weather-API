@@ -1,2 +1,3 @@
-# Training - React Wheater API
+# Training - React Wheater APP using openweatherAPI
 
+![img.png](img.png)
